@@ -36,7 +36,7 @@ Vehicle:
 
   4. Parameters
  
-     Communication Range: 200m
+     Communication Range: 200m (urban crossing scenario)
      Latency: <100ms
      Protocol: WSMP
      Channel: CCH
