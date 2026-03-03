@@ -1,6 +1,8 @@
 # CEG3006-V2P-Project
 Smart Crossing System using DSRC based V2P safety system
 
+It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impaired people at signal crossings.
+
 1. Project Overview
 
 The system uses:
@@ -13,20 +15,14 @@ The aim of the project is to provide collision warnings in <100 ms latency
 
 2. System Architecture:
 
-Pedestrian Unit (Smartphone + DSRC module)
-        ↕ IEEE 802.11p
-Vehicle OBU
-        ↕
-Vehicle CAN network
-        ↕
-Driver Warning System
+Pedestrian Unit (Smartphone + DSRC module) - IEEE 802.11p -> Vehicle OBU -> Vehicle CAN network -> Driver Warning System
 
-Safety messages are transmitted via WSMP over the Control Channel (CCH).
+Safety messages are transmitted thru WSMP over the Control Channel, CCH.
 
 3. Message Flow:
 
 Pedestrian:
-- Detect crossing intent
+- Detect intention to cross
 - Broadcast WSM with position and intent
 
 Vehicle:
