@@ -19,6 +19,8 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
   
   Safety messages are transmitted thru WSMP over the Control Channel, CCH.
 
+  pedestrian device broadcasts safety message using dsrc -> the vehicle obu receives and processes the msg -> driver warning system alerts driver if theres collision risk
+
 3. Message Flow:
 
   Pedestrian:
@@ -30,9 +32,11 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
   - Calculate Time-To-Collision (TTC)
   - If TTC < threshold → trigger warning
 
+  pedestrian device sends WSM with position & crossing intent thru button press -> vehicle gets msg, calculates TTC and if its < threhold than trigger warning
+
 4. Parameters
  
-     Communication Range: 200m (urban crossing scenario)
+     Communication Range: 200m (DSRC range in complex urban environments 100-300m)
      Latency: <100ms
      Protocol: WSMP
      Channel: CCH
