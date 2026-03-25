@@ -50,6 +50,8 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
 
 ![Functions Table](docs/functions_table1.PNG)
 
+Flow of functions
+
 1. OBU receives the state of the vehicle
 2. The collision risk is computed relative to the pedestrian
 3. Direction of the hazard is determined
@@ -64,7 +66,7 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
 
 ![Messages Table](docs/message_table1.PNG)
 
-#Flow of Messages
+Flow of messages
 
 1. A vehicle approaches the crossing zone
 2. Vehicle OBU will broadcast vehicle status
