@@ -62,7 +62,9 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
 
 ## Messages
 
-![Messages Table](docs/message1_table.PNG)
+![Messages Table](docs/message_table1.PNG)
+
+#Flow of Messages
 
 1. A vehicle approaches the crossing zone
 2. Vehicle OBU will broadcast vehicle status
