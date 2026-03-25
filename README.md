@@ -45,4 +45,4 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
 
 ## Functions
 
-![Functions Table](docs/functions_table.png)
+![Functions Table](docs/functions_table.PNG)
