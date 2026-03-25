@@ -41,3 +41,8 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
      Protocol: WSMP
      Channel: CCH
      Frequency: 5.9 GHz
+
+
+## Functions
+
+![Functions Table](docs/functions_table.png)
