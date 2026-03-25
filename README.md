@@ -46,3 +46,13 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
 ## Functions
 
 ![Functions Table](docs/functions_table.PNG)
+
+OBU receives the state of the vehicle
+The collision risk is computed relative to the pedestrian
+Direction of the hazard is determined
+Safety message is sent
+Message is sent using IEEE802.11p
+Pedestrian wearable gets the safety message
+Corresponding vibration pattern is chosen
+Vibrotactile actuators are activated
+Pedestrian can evaluate the direction of hazard or if its safe to cross
