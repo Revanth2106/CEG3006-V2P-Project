@@ -57,5 +57,7 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
 8. Vibrotactile actuators are activated
 9. Pedestrian can evaluate the direction of hazard or if its safe to cross
 
+## Messages
 
+![Messages Table](docs/messages_table.PNG)
 
