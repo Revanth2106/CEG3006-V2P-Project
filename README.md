@@ -61,3 +61,12 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
 
 ![Messages Table](docs/messages_table.PNG)
 
+1. A vehicle approaches the crossing zone
+2. Vehicle OBU will broadcast vehicle status
+3. Hazard detection logic determines collision risk
+4. Hazard warning is sent using DSRC
+5. Pedestrian wearable will receive the message
+6. Direction of hazard is identified
+7. Vibrotactile pattern is selected
+8. Actuators in insole provide vibration pattern according to direction
+9. Pedestrian responds to safety cue.
