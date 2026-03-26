@@ -1,8 +1,6 @@
 # CEG3006-V2P-Project
 Smart Crossing System using DSRC based V2P safety system
 
----
-
 ## Table of Contents
 
 1. [Project Overview](#1-project-overview)
@@ -10,8 +8,6 @@ Smart Crossing System using DSRC based V2P safety system
 3. [Functions](#3-functions)
 4. [Messages](#4-messages)
 5. [Individual Reflections](#5-individual-reflections)
-
----
 
 It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impaired people at signal crossings.
 
