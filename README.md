@@ -76,10 +76,6 @@ Flow of functions
 
 ## Messages
 
-![Messages Table](docs/message_table1.PNG)
-
-Flow of messages
-
 | Message ID | Message Name | Sender | Receiver | Fields | Purpose |
 |---|---|---|---|---|---|
 | **M1** | Vehicle Status Broadcast | Vehicle OBU | Pedestrian Controller | Position (lat/lon), Speed (km/h), Heading (°), Timestamp (ms), MsgCount | Share raw vehicle state at 10 Hz |
@@ -87,6 +83,10 @@ Flow of messages
 | **M3** | Safe-to-Cross Message | Safety Logic (Smartphone) | Pedestrian Controller (internal) | SafeFlag (bool), ValidityTime (ms) | Confirm crossing window is safe |
 | **M4** | Immediate Danger Alert | Vehicle OBU | Pedestrian Controller | DangerFlag (bool), Direction (enum), TTC (ms) | Urgent stop — critical collision risk |
 | **M5** | Vibrotactile Command | Pedestrian Controller (Smartphone) | Foot Interface (nRF52840 via BLE) | PatternType (enum), Intensity (0–255), Duration (ms), ActuatorMask (bitmask) | Trigger the correct vibration pattern on insole |
+
+![Messages Table](docs/message_table1.PNG)
+
+Flow of messages
 
 1. A vehicle approaches the crossing zone
 2. Vehicle OBU will broadcast vehicle status
