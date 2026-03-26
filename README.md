@@ -48,6 +48,18 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
 
 ## Functions
 
+| Function ID | Function Name | Description | Input | Output |
+|---|---|---|---|---|
+| **F1** | Vehicle State Retrieval | Vehicle OBU collects speed, position, and heading from onboard sensors | Vehicle sensors (GPS, CAN bus) | Vehicle state data |
+| **F2** | Hazard Detection | System evaluates collision risk and Time-to-Collision (TTC) relative to pedestrian position | Vehicle state data + pedestrian GPS | Hazard level (None / Low / High / Critical) |
+| **F3** | Direction Determination | Determines whether vehicle approaches from left or right relative to pedestrian heading | Hazard level + relative geometry | Hazard direction (Left / Right / Front / Rear) |
+| **F4** | Safety Message Generation | Generates a V2P BSM-based safety message with hazard level and direction fields | Hazard direction + level + ETA | Warning message (M2 or M4) |
+| **F5** | Wireless Transmission | Transmits message over C-V2X PC5 at 5.9 GHz ITS band | Warning message | Received packet at pedestrian side |
+| **F6** | Message Reception | Pedestrian smartphone receives and parses the C-V2X packet | Wireless packet | Parsed hazard message |
+| **F7** | Vibration Pattern Mapping | Maps parsed hazard level and direction to the appropriate vibrotactile pattern in the codebook | Parsed message | Pattern selection (one of 4 patterns) |
+| **F8** | Vibrotactile Actuation | Activates the selected ERM actuators in the insole via BLE command | Pattern selection | Physical foot vibration |
+| **F9** | User Interpretation | Pedestrian interprets the spatial vibration cue and reacts accordingly | Foot vibration | Safety-aware pedestrian response |
+
 ![Functions Table](docs/functions_table1.PNG)
 
 Flow of functions
