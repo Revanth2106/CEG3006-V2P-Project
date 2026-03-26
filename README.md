@@ -1,9 +1,21 @@
 # CEG3006-V2P-Project
 Smart Crossing System using DSRC based V2P safety system
 
+---
+
+## Table of Contents
+
+1. [Project Overview](#1-project-overview)
+2. [System Architecture](#2-system-architecture)
+3. [Functions](#3-functions)
+4. [Messages](#4-messages)
+5. [Individual Reflections](#5-individual-reflections)
+
+---
+
 It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impaired people at signal crossings.
 
-1. Project Overview
+## 1. Project Overview
 
   The system uses:
   - IEEE 802.11p (DSRC) for low latency communication
@@ -42,11 +54,11 @@ It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impair
      Channel: CCH
      Frequency: 5.9 GHz
 
-## System Architecture
+## 2. System Architecture
 
 ![System_Architecture](docs/system_architecture1.PNG)
 
-## Functions
+## 3. Functions
 
 | Function ID | Function Name | Description | Input | Output |
 |---|---|---|---|---|
@@ -74,7 +86,7 @@ Flow of functions
 8. Vibrotactile actuators are activated
 9. Pedestrian can evaluate the direction of hazard or if its safe to cross
 
-## Messages
+## 4. Messages
 
 | Message ID | Message Name | Sender | Receiver | Fields | Purpose |
 |---|---|---|---|---|---|
@@ -100,7 +112,7 @@ Flow of messages
 
 ## 
 
-## Individual Reflections
+## 5. Individual Reflections
 
 Revanth: I was able to contribute to the proposed safety V2P crossing system through creating the system architecture. The architecture shows the integration of the DSRC communication protocol used by the vehicle OBU and how it interacts with the vibrotactile insole worn by visually impaired people to provide safe navigation cues and potential danger warnings. In addition, I created the functions table depicting the sequence of events from the intial receiving of the vehicle state to the activation of the vibrotactile insoles that provide pedestrians with a sense of direction of a potential hazard or provides safe cues to cross. I came up with the message table representing the communication between the vehicles, pedestrian worn vibrotactile insoles and the activation of corresponding actuators indicating direction of potential danger to warn pedestrians. A key challenge that was faced by me was making sure the system architecture, function and message tables were consistent to ensure the precise implementation of the solution and required several rounds of improvements. All in all, this project has provided an opportunity to come up with a solution to aid visually impaired people especially in the area of safe navigation at crossing junctions and ensure its implementation its practical and feasible for everyday use.
 
