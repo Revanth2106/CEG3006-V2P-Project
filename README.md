@@ -57,7 +57,7 @@ Flow of functions
 3. Direction of the hazard is determined
 4. Safety message is sent
 5. Message is sent using IEEE802.11p
-6. Pedestrian wearable gets the safety message
+6. Pedestrian smart insole gets the safety message
 7. Corresponding vibration pattern is chosen
 8. Vibrotactile actuators are activated
 9. Pedestrian can evaluate the direction of hazard or if its safe to cross
@@ -72,12 +72,13 @@ Flow of messages
 2. Vehicle OBU will broadcast vehicle status
 3. Hazard detection logic determines collision risk
 4. Hazard warning is sent using DSRC
-5. Pedestrian wearable will receive the message
+5. Pedestrian smart insole will receive the message
 6. Direction of hazard is identified
 7. Vibrotactile pattern is selected
 8. Actuators in insole provide vibration pattern according to direction
 9. Pedestrian responds to safety cue.
 
+## 
 
 ## Individual Reflections
 
