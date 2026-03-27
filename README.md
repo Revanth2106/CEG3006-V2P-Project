@@ -8,9 +8,10 @@ Smart Crossing System using DSRC based V2P safety system
 3. [Functions](#3-functions)
 4. [Messages](#4-messages)
 5. [Hardware Components & Parameters](#5-hardware-components-&-parameters)
-6. [AI Usage](#6-ai-usage)
-7. [Individual Reflections](#7-individual-reflections)
-8. [References](#8-references)
+6. [Use Case](#6-use-case)
+7. [AI Usage](#7-ai-usage)
+8. [Individual Reflections](#8-individual-reflections)
+9. [References](#9-references)
 
 It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impaired people at signal crossings.
 
@@ -83,7 +84,9 @@ Flow of messages
 
 ## 5. Hardware Components & Parameters
 
-## 6. AI Usage
+## 6. Use Case
+
+## 7. AI Usage
 
 ### AI Tools Used
 
@@ -142,7 +145,7 @@ When asked to recommend a V2P communication technology, Gemini initially recomme
 
 When asked to estimate battery life for the insole, Claude initially stated the system would draw "approximately 3–4 mA average" from the BLE module, implying a 200 mAh battery would last over 50 hours. This figure was inconsistent with real-world BLE power consumption. **Correction:** The team validated the estimate against the Nordic Semiconductor nRF52 datasheet, which showed average current draw closer to 8 mA under the duty-cycling parameters we specified (~25 hours of battery life), still meeting our 8-hour target but significantly different from Claude's initial estimate.
 
-## 7. Individual Reflections
+## 8. Individual Reflections
 
 Revanth: I was able to contribute to the proposed safety V2P crossing system through creating the system architecture. The architecture shows the integration of the DSRC communication protocol used by the vehicle OBU and how it interacts with the vibrotactile insole worn by visually impaired people to provide safe navigation cues and potential danger warnings. In addition, I created the functions table depicting the sequence of events from the intial receiving of the vehicle state to the activation of the vibrotactile insoles that provide pedestrians with a sense of direction of a potential hazard or provides safe cues to cross. I came up with the message table representing the communication between the vehicles, pedestrian worn vibrotactile insoles and the activation of corresponding actuators indicating direction of potential danger to warn pedestrians. A key challenge that was faced by me was making sure the system architecture, function and message tables were consistent to ensure the precise implementation of the solution and required several rounds of improvements. All in all, this project has provided an opportunity to come up with a solution to aid visually impaired people especially in the area of safe navigation at crossing junctions and ensure its implementation its practical and feasible for everyday use.
 
@@ -154,7 +157,7 @@ Wiz: My contributions to this project were mainly focused on the literature revi
 
 Peng Hui: 
 
-## 8. References
+## 9. References
 
 [1]: Velázquez, R., Pissaloux, E., & Lay-Ekuakille, A. (2015). Tactile-Foot Stimulation Can Assist the Navigation of People with Visual Impairment. Applied Bionics and Biomechanics, 2015, 1–9. https://doi.org/10.1155/2015/798748
 
