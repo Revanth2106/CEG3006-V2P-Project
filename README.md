@@ -28,7 +28,7 @@ In contrast, this project adopts a low-bandwidth, event-driven tactile vocabular
   
 
 ## 2. System Architecture
-h
+
 ![System_Architecture](docs/sys_arch.png)
 
 ## 3. Overall Flow of Events
