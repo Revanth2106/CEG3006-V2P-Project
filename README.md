@@ -8,7 +8,7 @@ Smart Crossing System using DSRC based V2P safety system
 3. [Overall Flow of Events](#3-overall-flow-of-events)
 4. [Functions](#4-functions)
 5. [Messages](#5-messages)
-6. [Hardware Components & Parameters](#6-hardware-components-&-parameters)
+6. [Hardware Components and Parameters](#6-hardware-components-and-parameters)
 7. [Use Case](#7-use-case)
 8. [AI Usage](#8-ai-usage)
 9. [Individual Reflections](#9-individual-reflections)
@@ -95,7 +95,7 @@ Flow of messages
 8. Actuators in insole provide vibration pattern according to direction
 9. Pedestrian responds to safety cue.
 
-## 6. Hardware Components & Parameters
+## 6. Hardware Components and Parameters
 
 This section provides a detailed breakdown of the system’s hardware architecture and operational parameters. It includes the core embedded components, communication protocols (IEEE 802.11p, IEEE 1609, WSMP, SAE J2735), and performance metrics such as latency, communication range, and power consumption. These specifications highlight how the system meets real-time safety requirements for Vehicle-to-Pedestrian (V2P) applications.
 
