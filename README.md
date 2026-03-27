@@ -130,7 +130,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 | Frequency Band | 5.9 GHz | ITS dedicated spectrum |
 | Channel | Control Channel (CCH) | Safety-critical communication |
 | Communication Range | 100–300 m (~200 m typical) | Urban DSRC coverage |
-| End-to-End Latency | < 100 ms | Real-time safety requirement |
+| End-to-End Latency | < 150 ms | Real-time safety requirement |
 | Message Frequency | 1–10 Hz (configurable) | Broadcast rate |
 | Data Rate | ~3–27 Mbps (802.11p) | Physical layer capability |
 | Effective Bandwidth Usage | Low | Small safety message payloads |
@@ -169,7 +169,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 | Capability | Description |
 |-----------|------------|
-| Real-Time Safety | Alerts generated within <100 ms |
+| Real-Time Safety | Alerts generated within <150 ms |
 | Accessibility | Designed for visually impaired users |
 | Hands-Free Operation | No audio or visual reliance |
 | Low Power | Optimized for all-day wearable use |
@@ -179,7 +179,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 Ahmad is a visually impaired student who crosses a busy signalised intersection near his university every morning. He wears a smart insole embedded with four LRA vibrotactile actuators in each shoe, connected via Bluetooth 5.0 LE to a smartphone controller with a DSRC radio operating at 5.9 GHz.
 
-As Ahmad approaches the kerb, his controller begins listening for Vehicle Status Messages broadcast by nearby vehicles over the Control Channel at 5.9 GHz. A bus approaching from the right at 50 km/h continuously transmits Vehicle Status Messages (M1). Upon detecting a pedestrian in the crossing zone, the vehicle’s OBU computes the Time-to-Collision (TTC) and detects a high collision risk. Within 100 ms, it sends a Hazard Warning Message (M2) indicating danger from the right.
+As Ahmad approaches the kerb, his controller begins listening for Vehicle Status Messages broadcast by nearby vehicles over the Control Channel at 5.9 GHz. A bus approaching from the right at 50 km/h continuously transmits Vehicle Status Messages (M1). Upon detecting a pedestrian in the crossing zone, the vehicle’s OBU computes the Time-to-Collision (TTC) and detects a high collision risk. Within 150 ms, it sends a Hazard Warning Message (M2) indicating danger from the right.
 
 Ahmad’s smartphone processes the message and sends a Vibrotactile Command (M5) via BLE to the insole in under 10 ms. BLE operates at 2.4 GHz with low latency, enabling fast and reliable communication. Ahmad feels distinct pulses under the right side of his foot and steps back. Once the danger passes, a Safe-to-Cross Message triggers a centre vibration. The full response cycle completes within 100 ms, ensuring timely and intuitive guidance.
 
