@@ -99,14 +99,17 @@ Flow of messages
 
 ## 7. Use Case
 
-Ahmad is a visually impaired student who crosses a busy signalised intersection near his university every morning. He wears a smart insole embedded with four ERM vibrotactile actuators in each shoe, wirelessly linked via Bluetooth 5.0 LE to a pedestrian controller app on his smartphone, which also houses a DSRC radio module operating at 5.9 GHz.
-As Ahmad approaches the kerb, his controller begins broadcasting a WAVE Short Message (WSM) over the Control Channel (CCH) at 10 Hz, transmitting his GPS position and crossing intent to all vehicles within a 200-metre radius.
-A bus approaching from the right at 50 km/h has its OBU continuously sending Vehicle Status Broadcasts (M1). Upon receiving Ahmad's WSM, the OBU computes the Time-To-Collision (TTC) and determines a high collision risk. Within 100 ms, it transmits a Hazard Warning Message (M2) encoding a high hazard level with a right-side direction field.
-Ahmad's controller parses the M2 message, selects the Right Actuator vibration pattern from the codebook, and sends a Vibrotactile Command (M5) via Bluetooth Low Energy (BLE) to his insole in under 10 ms. BLE is a is a wireless communication technology designed for short-range data transfer with minimal power consumption. BLE is used to wirelessly connect the pedestrian smartphone controller to the vibrotactile insole, sending the M5 Vibrotactile Command to trigger the correct actuator pattern on the insole. It operates at 2.4 GHz with a range of around 10 metres and a latency of under 10 ms, which is fast enough for real-time haptic feedback. Ahmad then immediately feels distinct pulses under the right side of his foot, which is a straightforward and hands-free cue that a vehicle is approaching from the right. With this, he steps back from the kerb. Once the bus clears the zone and no further collision risk is detected, the safety logic issues a Safe-to-Cross Message (M3), triggering the Centre Actuator pattern. Ahmad feels a steady centre pulse and safely crosses the road. The full warning cycle, from vehicle detection to haptic alert, completes in under 100 ms, providing reliable, audio-independent spatial guidance at every crossing.
+Ahmad is a visually impaired student who crosses a busy signalised intersection near his university every morning. He wears a smart insole embedded with four ERM vibrotactile actuators in each shoe, connected via Bluetooth 5.0 LE to a smartphone controller with a DSRC radio operating at 5.9 GHz.
+
+As Ahmad approaches the kerb, his controller broadcasts a WAVE Short Message (WSM) over the Control Channel at 10 Hz, transmitting his GPS position and crossing intent to nearby vehicles within a 200-metre range. A bus approaching from the right at 50 km/h continuously transmits Vehicle Status Messages (M1). Upon receiving Ahmad’s signal, the vehicle’s OBU computes the Time-to-Collision (TTC) and detects a high collision risk. Within 100 ms, it sends a Hazard Warning Message (M2) indicating danger from the right.
+
+Ahmad’s smartphone processes the message and sends a Vibrotactile Command (M5) via BLE to the insole in under 10 ms. BLE operates at 2.4 GHz with low latency, enabling fast and reliable communication. Ahmad feels distinct pulses under the right side of his foot and steps back. Once the danger passes, a Safe-to-Cross Message triggers a centre vibration. The full response cycle completes within 100 ms, ensuring timely and intuitive guidance.
 
 ## 8. AI Usage
 
 ### AI Tools Used
+
+
 
 | Tool | Project Phase | How It Was Used |
 |------|--------------|-----------------|
