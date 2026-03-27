@@ -97,6 +97,84 @@ Flow of messages
 
 ## 6. Hardware Components & Parameters
 
+This section provides a detailed breakdown of the system’s hardware architecture and operational parameters. It includes the core embedded components, communication protocols (IEEE 802.11p, IEEE 1609, WSMP, SAE J2735), and performance metrics such as latency, communication range, and power consumption. These specifications highlight how the system meets real-time safety requirements for Vehicle-to-Pedestrian (V2P) applications.
+
+---
+
+## 🔧 Hardware Components
+
+| Module | Component | Description | Key Specs / Notes |
+|--------|----------|------------|------------------|
+| Microcontroller | Nordic nRF52840 | Main controller with BLE | Ultra-low power, BLE 5, wearable-friendly |
+| Haptic Driver | TI DRV2605L | Drives vibration actuators | Supports LRA/ERM, built-in haptic library |
+| Actuators | LRA Vibration Motors | Provides tactile feedback | Fast response, precise patterns |
+| Motion Sensor | Bosch BMA400 | Detects movement / wake-up | Ultra-low power accelerometer |
+| Pressure Sensors | FSR / FlexiForce Sensors | Detect foot pressure distribution | Used for intent detection & gait analysis |
+| Wireless Gateway | Smartphone (BLE + V2X bridge) | Handles V2P communication | Runs app for logic & message processing |
+| Power Management | TI BQ24074 | Battery charging & power path | Li-Po support, power-path control |
+| Battery Gauge | MAX17048 | Battery level monitoring | Low-power fuel gauge |
+| Power Source | Li-Po Battery (100–300 mAh) | Main energy source | Designed for all-day usage |
+| Communication Module | DSRC / C-V2X (via gateway/OBU) | Enables V2P communication | Operates at 5.9 GHz ITS band |
+
+---
+
+## 📡 Communication & System Parameters
+
+| Parameter | Value | Description |
+|----------|------|------------|
+| Communication Type | V2P (Vehicle-to-Pedestrian) | Pedestrian ↔ Vehicle / Infrastructure |
+| Wireless Protocol | IEEE 802.11p (DSRC) | Low-latency vehicular communication |
+| WAVE Stack | IEEE 1609 | Networking & messaging framework |
+| Message Protocol | WSMP | Fast safety message delivery |
+| Message Format | SAE J2735 | Standardized safety message structure |
+| Frequency Band | 5.9 GHz | ITS dedicated spectrum |
+| Channel | Control Channel (CCH) | Safety-critical communication |
+| Communication Range | 100–300 m (~200 m typical) | Urban DSRC coverage |
+| End-to-End Latency | < 100 ms | Real-time safety requirement |
+| Message Frequency | 1–10 Hz (configurable) | Broadcast rate |
+| Data Rate | ~3–27 Mbps (802.11p) | Physical layer capability |
+| Effective Bandwidth Usage | Low | Small safety message payloads |
+| Packet Size | ~50–300 bytes | Typical WSM payload |
+
+---
+
+## ⚡ Smart Insole Parameters
+
+| Parameter | Value | Description |
+|----------|------|------------|
+| Number of Actuators | 4–6 | Enables spatial feedback |
+| Feedback Type | Vibrotactile (LRA) | Silent, non-visual guidance |
+| Response Time | < 50 ms | Trigger to vibration delay |
+| Power Consumption (Idle) | < 1 mA | Low-power sleep mode |
+| Power Consumption (Active) | 10–100 mA (burst) | During vibration + BLE |
+| Battery Life | ~8–12 hours | Depends on usage frequency |
+| Communication (Insole ↔ Phone) | BLE | Low energy communication |
+| Wake-Up Mechanism | Motion / pressure-triggered | Improves power efficiency |
+
+---
+
+## 🚗 Safety & Detection Parameters
+
+| Parameter | Value | Description |
+|----------|------|------------|
+| Collision Metric | Time-To-Collision (TTC) | Core risk evaluation |
+| TTC Threshold | 2–5 seconds (configurable) | Determines danger level |
+| Detection Inputs | Distance + velocity | Used for TTC calculation |
+| Update Rate | ~10 Hz | Real-time monitoring |
+| Alert Types | Directional + urgency-based | Encoded via vibration |
+
+---
+
+## 📊 System Capabilities
+
+| Capability | Description |
+|-----------|------------|
+| Real-Time Safety | Alerts generated within <100 ms |
+| Accessibility | Designed for visually impaired users |
+| Hands-Free Operation | No audio or visual reliance |
+| Low Power | Optimized for all-day wearable use |
+| Scalable | Compatible with DSRC and future C-V2X |
+
 ## 7. Use Case
 
 Ahmad is a visually impaired student who crosses a busy signalised intersection near his university every morning. He wears a smart insole embedded with four ERM vibrotactile actuators in each shoe, connected via Bluetooth 5.0 LE to a smartphone controller with a DSRC radio operating at 5.9 GHz.
