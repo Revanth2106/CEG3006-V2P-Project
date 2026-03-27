@@ -61,8 +61,6 @@ graph TD;
 | `F8` | Vibrotactile Actuation | Activates the selected ERM actuators in the insole via BLE command | Pattern selection | Physical foot vibration |
 | `F9` | User Interpretation | Pedestrian interprets the spatial vibration cue and reacts accordingly | Foot vibration | Safety-aware pedestrian response |
 
-![Functions Table](docs/functions_table1.PNG)
-
 Flow of functions
 
 1. OBU receives the state of the vehicle
@@ -84,8 +82,6 @@ Flow of functions
 | `M3` | Safe-to-Cross Message | Safety Logic (Smartphone) | Pedestrian Controller (internal) | SafeFlag (bool), ValidityTime (ms) | Confirm crossing window is safe |
 | `M4` | Immediate Danger Alert | Vehicle OBU | Pedestrian Controller | DangerFlag (bool), Direction (enum), TTC (ms) | Urgent stop — critical collision risk |
 | `M5` | Vibrotactile Command | Pedestrian Controller (Smartphone) | Foot Interface (nRF52840 via BLE) | PatternType (enum), Intensity (0–255), Duration (ms), ActuatorMask (bitmask) | Trigger the correct vibration pattern on insole |
-
-![Messages Table](docs/message_table1.PNG)
 
 Flow of messages
 
