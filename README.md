@@ -23,35 +23,6 @@ In contrast, this project adopts a low-bandwidth, event-driven tactile vocabular
 
   
 
-2. System Architecture:
-
-  Pedestrian Unit (Smartphone + DSRC module) - IEEE 802.11p -> Vehicle OBU -> Vehicle CAN network -> Driver Warning System
-  
-  Safety messages are transmitted thru WSMP over the Control Channel, CCH.
-
-  pedestrian device broadcasts safety message using dsrc -> the vehicle obu receives and processes the msg -> driver warning system alerts driver if theres collision risk
-
-3. Message Flow:
-
-  Pedestrian:
-  - Detect intention to cross
-  - Broadcast WSM with position and intent
-  
-  Vehicle:
-  - Receive WSM
-  - Calculate Time-To-Collision (TTC)
-  - If TTC < threshold → trigger warning
-
-  pedestrian device sends WSM with position & crossing intent thru button press -> vehicle gets msg, calculates TTC and if its < threhold than trigger warning
-
-4. Parameters
- 
-     Communication Range: 200m (DSRC range in complex urban environments 100-300m)
-     Latency: <100ms
-     Protocol: WSMP
-     Channel: CCH
-     Frequency: 5.9 GHz
-
 ## 2. System Architecture
 
 ![System_Architecture](docs/system_architecture1.PNG)
