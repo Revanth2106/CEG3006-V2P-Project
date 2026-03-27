@@ -81,6 +81,64 @@ Flow of messages
 9. Pedestrian responds to safety cue.
 
 ## 5. AI Usage
+## AI Usage and Verification
+
+### AI Tools Used
+
+| Tool | Project Phase | How It Was Used |
+|------|--------------|-----------------|
+| ChatGPT | Research & Ideation (Early March) | Surveying existing V2P literature; brainstorming wearable form factors |
+| Gemini AI | Design & Architecture (Mid March) | Suggesting relay architecture; drafting vibration pattern language; flagging privacy considerations |
+| Claude | Validation & Documentation (Late March) | Drafting latency budget tables; actuator comparisons; filter logic for false positive reduction; decision log write-up |
+
+---
+
+### Examples of Prompts and Generated Outputs
+
+**Prompt 1 — Literature Survey (ChatGPT)**
+> *"What existing Vehicle-to-Pedestrian (V2P) safety applications exist, and how do they warn pedestrians of danger? Focus on wearable or haptic approaches."*
+
+**Output summary:** ChatGPT returned an overview of smartphone-based V2P alert apps, audio-based warning systems, and a brief mention of haptic wristbands in research prototypes. It identified that most existing solutions rely on visual or audio alerts, leaving a gap for users who are visually impaired or wearing headphones.
+
+**How we verified it:** We cross-checked the cited solutions against Google Scholar and IEEE Xplore. The general landscape was accurate, but one referenced paper ("HaptiCross, 2021") could not be found in any database and appeared to be fabricated — see hallucination example 1 below.
+
+---
+
+**Prompt 2 — Latency Budget (Claude)**
+> *"For a V2P safety system using DSRC / IEEE 802.11p with a smartphone relay and BLE connection to a haptic insole, estimate the end-to-end latency budget breakdown and determine whether it is safe for a pedestrian at a crossing with vehicles travelling at 50 km/h."*
+
+**Output summary:** Claude produced a latency breakdown (802.11p ~50 ms, smartphone processing ~50 ms, BLE relay ~10 ms, app logic ~20 ms, total ~130 ms) and calculated that at 50 km/h a vehicle covers ~14 m/s, requiring at least ~1.5 s of pedestrian reaction time. It concluded that 130 ms was well within a safe 500 ms budget.
+
+**How we verified it:** The 802.11p transmission latency figure was verified against ETSI EN 302 663. The BLE latency estimate was checked against the published Bluetooth 5.0 specification. The vehicle kinematics calculation was independently redone by the team and confirmed correct.
+
+---
+
+**Prompt 3 — Actuator Selection (Claude)**
+> *"Compare eccentric rotating mass (ERM) motors, linear resonant actuators (LRA), and piezoelectric actuators for use in a haptic insole that must fit inside a shoe, run on a small battery, and produce distinct vibration pulses with fast response times."*
+
+**Output summary:** Claude recommended LRAs due to their faster response time (~10 ms vs ~50 ms for ERMs), lower power draw, and suitability for repeatable pulse patterns. It flagged that piezoelectric actuators require high driving voltages (100–200 V) incompatible with a small LiPo cell, and that ERMs suffer from spin-up delay making them poorly suited for sharp, distinct pulses.
+
+**How we verified it:** Response time figures for LRAs were confirmed using a Texas Instruments application note on haptic actuator selection. The piezoelectric voltage requirement was verified against component datasheets from Murata.
+
+---
+
+### Identified Weaknesses and Hallucinations
+
+**Hallucination 1 — Fabricated Academic Reference (ChatGPT)**
+
+During the literature survey, ChatGPT cited a paper titled *"HaptiCross: Haptic Feedback for Safe Pedestrian Crossings"* (2021) as evidence for haptic wearables in V2P research. When we searched IEEE Xplore, ACM Digital Library, and Google Scholar, no such paper could be found. This is a well-documented failure mode of large language models — generating plausible-sounding but entirely fictitious citations. **Correction:** We discarded the reference and replaced it with real papers found directly through IEEE Xplore.
+
+---
+
+**Hallucination 2 — Incorrect Communication Technology Recommendation (ChatGPT)**
+
+When asked to recommend a V2P communication technology, ChatGPT initially recommended C-V2X (PC5 sidelink) as the superior choice and stated it was "already widely deployed in consumer smartphones as of 2023." This was factually inaccurate — C-V2X chipsets remain uncommon in consumer devices and require specialised hardware. The claim was not supported by any manufacturer specification or standards document. **Correction:** The team independently researched both DSRC and C-V2X deployment status and selected DSRC / IEEE 802.11p based on its more mature ecosystem and infrastructure independence.
+
+---
+
+**Hallucination 3 — Overconfident Power Estimate (Claude)**
+
+When asked to estimate battery life for the insole, Claude initially stated the system would draw "approximately 3–4 mA average" from the BLE module, implying a 200 mAh battery would last over 50 hours. This figure was inconsistent with real-world BLE power consumption. **Correction:** The team validated the estimate against the Nordic Semiconductor nRF52 datasheet, which showed average current draw closer to 8 mA under the duty-cycling parameters we specified (~25 hours of battery life), still meeting our 8-hour target but significantly different from Claude's initial estimate.
 
 ## 6. Individual Reflections
 
