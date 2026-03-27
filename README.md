@@ -81,7 +81,6 @@ Flow of messages
 9. Pedestrian responds to safety cue.
 
 ## 5. AI Usage
-## AI Usage and Verification
 
 ### AI Tools Used
 
