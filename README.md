@@ -108,6 +108,14 @@ Ahmad’s smartphone processes the message and sends a Vibrotactile Command (M5)
 ## 8. AI Usage
 
 ### AI Tools Used
+Throughout this project, AI tools such as ChatGPT were used to support different phases of the development process. During the literature review phase, AI was used to help me understand many technical concepts such as vibrotactile feedback, haptic communication, and human perception of vibration patterns. This helped to speed up the understanding of how different vibration parameters, including intensity, rhythm, and spatial placement, affect user perception.
+
+In terms of system design and technical validation, AI was used to cross-check important parameters such as DSRC latency, BLE communication delay, actuator response time, and overall end-to-end latency. It also helped to explain how different components within the V2X communication stack interact with one another, allowing for better validation of whether the proposed system meets real-time safety requirements.
+
+For the hardware components and real-world use case, AI assisted in reviewing the consistency of hardware specifications and communication parameters. This ensured that values such as transmission rate, communication range, and latency were realistic and aligned with the intended system behaviour. AI was also used to refine the use case scenario to ensure that the data flow was logical and clearly explained.
+
+Lastly, AI was used to support in our writeup so that our content can be clear, coherent, easy to understand while maintaining technical accuracy.
+
 
 
 
