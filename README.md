@@ -106,7 +106,7 @@ Flow of messages
 8. Actuators in insole provide vibration pattern according to direction
 9. Pedestrian responds to safety cue.
 
-## 
+## AI Usage
 
 ## 5. Individual Reflections
 
