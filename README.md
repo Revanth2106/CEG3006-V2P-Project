@@ -1,4 +1,4 @@
-# CEG3006-V2P-Project
+# CEG3006-V2P-Project-Group 5
 Smart Crossing System using DSRC based V2P safety system
 
 ## Table of Contents
@@ -55,8 +55,8 @@ graph TD;
 | `F2` | Hazard Detection | System evaluates collision risk and Time-to-Collision (TTC) relative to pedestrian position | Vehicle state data + pedestrian GPS | Hazard level (None / Low / High / Critical) |
 | `F3` | Direction Determination | Determines whether vehicle approaches from left or right relative to pedestrian heading | Hazard level + relative geometry | Hazard direction (Left / Right / Front / Rear) |
 | `F4` | Safety Message Generation | Generates a V2P BSM-based safety message with hazard level and direction fields | Hazard direction + level + ETA | Warning message (M2 or M4) |
-| `F5` | Wireless Transmission | Transmits message over DSRC PC5 at 5.9 GHz ITS band | Warning message | Received packet at pedestrian side |
-| `F6` | Message Reception | Pedestrian smartphone receives and parses the C-V2X packet | Wireless packet | Parsed hazard message |
+| `F5` | Wireless Transmission | Transmits message over DSRC / IEEE 802.11p at 5.9 GHz ITS band | Warning message | Received packet at pedestrian side |
+| `F6` | Message Reception | Pedestrian smartphone receives and parses the DSRC packet | Wireless packet | Parsed hazard message |
 | `F7` | Vibration Pattern Mapping | Maps parsed hazard level and direction to the appropriate vibrotactile pattern in the codebook | Parsed message | Pattern selection (one of 4 patterns) |
 | `F8` | Vibrotactile Actuation | Activates the selected LRA actuators in the insole via BLE command | Pattern selection | Physical foot vibration |
 | `F9` | User Interpretation | Pedestrian interprets the spatial vibration cue and reacts accordingly | Foot vibration | Safety-aware pedestrian response |
@@ -130,7 +130,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 | Frequency Band | 5.9 GHz | ITS dedicated spectrum |
 | Channel | Control Channel (CCH) | Safety-critical communication |
 | Communication Range | 100–300 m (~200 m typical) | Urban DSRC coverage |
-| End-to-End Latency | < 100 ms | Real-time safety requirement |
+| End-to-End Latency | < 150 ms | Real-time safety requirement |
 | Message Frequency | 1–10 Hz (configurable) | Broadcast rate |
 | Data Rate | ~3–27 Mbps (802.11p) | Physical layer capability |
 | Effective Bandwidth Usage | Low | Small safety message payloads |
@@ -169,7 +169,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 | Capability | Description |
 |-----------|------------|
-| Real-Time Safety | Alerts generated within <100 ms |
+| Real-Time Safety | Alerts generated within <150 ms |
 | Accessibility | Designed for visually impaired users |
 | Hands-Free Operation | No audio or visual reliance |
 | Low Power | Optimized for all-day wearable use |
@@ -179,7 +179,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 Ahmad is a visually impaired student who crosses a busy signalised intersection near his university every morning. He wears a smart insole embedded with four LRA vibrotactile actuators in each shoe, connected via Bluetooth 5.0 LE to a smartphone controller with a DSRC radio operating at 5.9 GHz.
 
-As Ahmad approaches the kerb, his controller broadcasts a WAVE Short Message (WSM) over the Control Channel at 10 Hz, transmitting his GPS position and crossing intent to nearby vehicles within a 200-metre range. A bus approaching from the right at 50 km/h continuously transmits Vehicle Status Messages (M1). Upon receiving Ahmad’s signal, the vehicle’s OBU computes the Time-to-Collision (TTC) and detects a high collision risk. Within 100 ms, it sends a Hazard Warning Message (M2) indicating danger from the right.
+As Ahmad approaches the kerb, his controller begins listening for Vehicle Status Messages broadcast by nearby vehicles over the Control Channel at 5.9 GHz. A bus approaching from the right at 50 km/h continuously transmits Vehicle Status Messages (M1). Upon detecting a pedestrian in the crossing zone, the vehicle’s OBU computes the Time-to-Collision (TTC) and detects a high collision risk. Within 150 ms, it sends a Hazard Warning Message (M2) indicating danger from the right.
 
 Ahmad’s smartphone processes the message and sends a Vibrotactile Command (M5) via BLE to the insole in under 10 ms. BLE operates at 2.4 GHz with low latency, enabling fast and reliable communication. Ahmad feels distinct pulses under the right side of his foot and steps back. Once the danger passes, a Safe-to-Cross Message triggers a centre vibration. The full response cycle completes within 100 ms, ensuring timely and intuitive guidance.
 
@@ -260,9 +260,10 @@ Yong Lun: My contributions was to brainstorm the initial solution to be less gen
 
 Ernest: My primary contributions to this project were the decision log, the README documentation, and evaluating the AI-generated outputs throughout the process. Going into the project, I was already fairly comfortable using generative AI tools, so I took on the role of crafting and refining the prompts we used to accelerate our research and documentation. However, I quickly realised that even with prior experience, getting consistently useful outputs required far more deliberate effort than I had anticipated. Vague or broad prompts would return generic responses that sounded plausible but lacked the technical specificity our project needed. For example, early prompts about V2X communication technology returned confident comparisons with figures I could not verify against the actual IEEE 802.11p standard. This taught me that AI tools work best as a starting point rather than a final source, and that domain knowledge is essential to critically evaluate what they produce. I found that structuring the log chronologically also helped the team stay aligned on what had been decided which reduced repeated discussions. Overall, this project changed how I think about AI-assisted work and responsible use means treating every AI output as a draft that requires human verification, not a conclusion. I leave this project with a much stronger appreciation for the engineering discipline of V2X communication and the practical challenges of designing safety-critical systems for vulnerable road users.
 
-Wiz: My contributions to this project were mainly focused on the literature review and research on hardware components, where I explored existing studies on vibrotactile feedback and how it can be used to convey directional information effectively. I worked on sections that looked at how users interpret vibration patterns through foot-based stimulation, including factors such as vibration intensity, rhythm, and spatial placement. By going through multiple research papers, I gained a better understanding of how these tactile cues can be designed and recognised reliably, with some studies showing high accuracy in navigation tasks. This helped me see how these concepts could be applied to support the feasibility of our proposed V2P system. For the hardware components, parameters, and real-world use case, I supported my teammates by reviewing and improving the content to ensure the system was technically consistent and fiulfills real-life saety needs. I checked whether key parameters like DSRC latency (<100 ms), BLE delay (<10 ms), and actuator response time (<5 ms) made sense for a real-time safety system. I also made sure that the overall data flow, from vehicle broadcast, to smartphone processing, and then to the vibrotactile feedback, was logical. During this process, I used AI tools to help cross-check parameter ranges, understand whether the latency targets were realistic, and better visualise how the different components interact within the V2X system. I also reviewed the use case to ensure it reflected realistic behaviour, such as message frequency and response timing. One challenge I faced was making sure that the literature review was actually linked clearly to our system design. This meant taking what I learned from the research, such as how well users can recognise vibration patterns, and applying it to actual design decisions like where to place the actuators and how the vibration signals should feel. Overall, this project helped me improve my ability to connect research with real system implementation and made me more confident in contributing to a safety-oriented engineering project.
+Wiz: My contributions to this project were mainly focused on the literature review and research on hardware components, where I explored existing studies on vibrotactile feedback and how it can be used to convey directional information effectively. I worked on sections that looked at how users interpret vibration patterns through foot-based stimulation, including factors such as vibration intensity, rhythm, and spatial placement. By going through multiple research papers, I gained a better understanding of how these tactile cues can be designed and recognised reliably, with some studies showing high accuracy in navigation tasks. This helped me see how these concepts could be applied to support the feasibility of our proposed V2P system. For the hardware components, parameters, and real-world use case, I supported my teammates by reviewing and improving the content to ensure the system was technically consistent and fulfills real-life safety needs. I checked whether key parameters like DSRC latency (<100 ms), BLE delay (<10 ms), and actuator response time (<5 ms) made sense for a real-time safety system. I also made sure that the overall data flow, from vehicle broadcast, to smartphone processing, and then to the vibrotactile feedback, was logical. During this process, I used AI tools to help cross-check parameter ranges, understand whether the latency targets were realistic, and better visualise how the different components interact within the V2X system. I also reviewed the use case to ensure it reflected realistic behaviour, such as message frequency and response timing. One challenge I faced was making sure that the literature review was actually linked clearly to our system design. This meant taking what I learned from the research, such as how well users can recognise vibration patterns, and applying it to actual design decisions like where to place the actuators and how the vibration signals should feel. Overall, this project helped me improve my ability to connect research with real system implementation and made me more confident in contributing to a safety-oriented engineering project.
 
-Peng Hui: 
+Peng Hui: During the conceptualization of the system, my contributions focused heavily on defining the technical constraints and performance budgets required for a real-time safety system. I worked closely on evaluating our V2P communication options, assisting in the selection of DSRC over C-V2X to ensure reliable, low-latency message delivery. A major part of my ideation effort was establishing the end-to-end latency budget. I helped calculate the vehicle kinematics and reaction times, determining that our system needed to operate well under a 500 ms threshold to provide a meaningful warning to pedestrians. Additionally, I contributed to the power management conceptualization, helping design the aggressive BLE duty cycling strategy. This ensured our proposed insole could realistically achieve an 8-hour battery life without compromising the speed of safety alerts.
+
 
 ## 10. References
 
@@ -276,5 +277,4 @@ Peng Hui:
 
 [5]: Ohtsuka, S., Tomizawa, T., Hasegawa, S., Sasaki, N., & Harakawa, T. (2013, October). Introduction of a wireless Body-Braille device and a self-learning system. 2013 IEEE 2nd Global Conference on Consumer Electronics (GCCE), Article 6664872. https://doi.org/10.1109/GCCE.2013.6664872
 
-[6]:  Barontini, F. (2025). Wearable Haptic Devices for Realistic Scenario Applications (1st ed. 2025.). Springer Nature Switzerland. https://doi.org/10.1007/978-3-031-70539-7
 
