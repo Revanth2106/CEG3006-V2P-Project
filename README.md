@@ -104,10 +104,10 @@ Flow of messages
 
 ---
 
-**Prompt 2 — Latency Budget (Claude)**
+**Prompt 2 — Latency Budget (Gemini)**
 > *"For a V2P safety system using DSRC / IEEE 802.11p with a smartphone relay and BLE connection to a haptic insole, estimate the end-to-end latency budget breakdown and determine whether it is safe for a pedestrian at a crossing with vehicles travelling at 50 km/h."*
 
-**Output summary:** Claude produced a latency breakdown (802.11p ~50 ms, smartphone processing ~50 ms, BLE relay ~10 ms, app logic ~20 ms, total ~130 ms) and calculated that at 50 km/h a vehicle covers ~14 m/s, requiring at least ~1.5 s of pedestrian reaction time. It concluded that 130 ms was well within a safe 500 ms budget.
+**Output summary:** Gemini produced a latency breakdown (802.11p ~50 ms, smartphone processing ~50 ms, BLE relay ~10 ms, app logic ~20 ms, total ~130 ms) and calculated that at 50 km/h a vehicle covers ~14 m/s, requiring at least ~1.5 s of pedestrian reaction time. It concluded that 130 ms was well within a safe 500 ms budget.
 
 **How we verified it:** The 802.11p transmission latency figure was verified against ETSI EN 302 663. The BLE latency estimate was checked against the published Bluetooth 5.0 specification. The vehicle kinematics calculation was independently redone by the team and confirmed correct.
 
@@ -130,9 +130,9 @@ During the literature survey, ChatGPT cited a paper titled *"HaptiCross: Haptic 
 
 ---
 
-**Hallucination 2 — Incorrect Communication Technology Recommendation (ChatGPT)**
+**Hallucination 2 — Incorrect Communication Technology Recommendation (Gemini)**
 
-When asked to recommend a V2P communication technology, ChatGPT initially recommended C-V2X (PC5 sidelink) as the superior choice and stated it was "already widely deployed in consumer smartphones as of 2023." This was factually inaccurate — C-V2X chipsets remain uncommon in consumer devices and require specialised hardware. The claim was not supported by any manufacturer specification or standards document. **Correction:** The team independently researched both DSRC and C-V2X deployment status and selected DSRC / IEEE 802.11p based on its more mature ecosystem and infrastructure independence.
+When asked to recommend a V2P communication technology, Gemini initially recommended C-V2X (PC5 sidelink) as the superior choice and stated it was "already widely deployed in consumer smartphones as of 2023." This was factually inaccurate as C-V2X chipsets remain uncommon in consumer devices and require specialised hardware. The claim was not supported by any manufacturer specification or standards document. **Correction:** The team independently researched both DSRC and C-V2X deployment status and selected DSRC / IEEE 802.11p based on its more mature ecosystem and infrastructure independence.
 
 ---
 
