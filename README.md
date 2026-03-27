@@ -1,4 +1,4 @@
-# CEG3006-V2P-Project
+# CEG3006-V2P-Project-Group 5
 Smart Crossing System using DSRC based V2P safety system
 
 ## Table of Contents
