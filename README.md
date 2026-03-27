@@ -101,7 +101,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 ---
 
-## 🔧 Hardware Components
+## Hardware Components
 
 | Module | Component | Description | Key Specs / Notes |
 |--------|----------|------------|------------------|
@@ -118,7 +118,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 ---
 
-## 📡 Communication & System Parameters
+## Communication & System Parameters
 
 | Parameter | Value | Description |
 |----------|------|------------|
@@ -138,7 +138,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 ---
 
-## ⚡ Smart Insole Parameters
+## Smart Insole Parameters
 
 | Parameter | Value | Description |
 |----------|------|------------|
@@ -153,7 +153,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 ---
 
-## 🚗 Safety & Detection Parameters
+## Safety & Detection Parameters
 
 | Parameter | Value | Description |
 |----------|------|------------|
@@ -165,7 +165,7 @@ This section provides a detailed breakdown of the system’s hardware architectu
 
 ---
 
-## 📊 System Capabilities
+## System Capabilities
 
 | Capability | Description |
 |-----------|------------|
