@@ -9,6 +9,7 @@ Smart Crossing System using DSRC based V2P safety system
 4. [Messages](#4-messages)
 5. [AI Usage](#5-ai-usage)
 6. [Individual Reflections](#6-individual-reflections)
+7. [References](#7-references)
 
 It is a Vehicle to Pedestrian (V2P) safety system created to aid visually impaired people at signal crossings.
 
